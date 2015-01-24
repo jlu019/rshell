@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <unistd.h>
 
 using namespace std;
 
@@ -15,18 +16,25 @@ void connect()
 }
 
 int main(
-	char inp[];
+	string inp;
+	string inp2;
+	char* user = getlogin();
+	char* host = gethostname();
 	char *tok;
-	unsigned i = 0;
 	
-	cout << "$ ";
-	while()
+	cout << user << "@" << host << "$ ";
+	getline(inp);
+
+	for(unsigned i = 0; i < inp.size(); ++i)
 	{
-		cin << inp[i];
-		if(inp[i] == endl)
-			break;	
-		++i;
+		if(inp[i] == '#')
+			break;
+		inp2.push_back(inp[i]);
+		
 	}
 	
-	tok = strtok(inp," ");
+	tok = strtok(inp, " ");
+	
+	//perror("
+	tok = strtok(NULL, " ");
 }
